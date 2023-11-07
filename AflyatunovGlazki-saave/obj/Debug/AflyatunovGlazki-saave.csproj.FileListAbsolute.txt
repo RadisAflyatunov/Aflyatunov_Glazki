@@ -24,3 +24,14 @@ D:\3 курс\лабы Рпм\лаба 10\AflyatunovGlazki-saave\obj\Debug\Aflya
 D:\3 курс\лабы Рпм\лаба 10\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.exe
 D:\3 курс\лабы Рпм\лаба 10\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.pdb
 D:\3 курс\лабы Рпм\лаба 10\AflyatunovGlazki-saave\obj\Debug\App.baml
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.csproj.AssemblyReference.cache
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.csproj.SuggestedBindingRedirects.cache
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AddPageEdit.g.cs
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\MainWindow.g.cs
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\App.g.cs
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave_Content.g.cs
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave_MarkupCompile.cache
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave_MarkupCompile.lref
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.exe
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.pdb
+D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\ProductPage.g.cs

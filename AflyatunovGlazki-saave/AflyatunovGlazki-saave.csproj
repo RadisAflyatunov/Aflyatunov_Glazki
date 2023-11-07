@@ -67,53 +67,66 @@
     <Compile Include="AddPageEdit.xaml.cs">
       <DependentUpon>AddPageEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AflyatunovGlazkiModel.cs">
+    <Compile Include="AflyatunovGlazki.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AflyatunovGlazki.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AflyatunovGlazki.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AflyatunovGlazki.edmx</DependentUpon>
     </Compile>
     <Compile Include="Agent.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="AgentPriorityHistory.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="AgentType.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Material.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="MaterialCountHistory.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="MaterialType.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductCostHistory.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductMaterial.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProductSale.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductType.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shop.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DependentUpon>AflyatunovGlazki.tt</DependentUpon>
     </Compile>
     <Page Include="AddPageEdit.xaml">
       <SubType>Designer</SubType>
@@ -123,16 +136,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AflyatunovGlazkiModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AflyatunovGlazkiModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AflyatunovGlazkiModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -141,6 +144,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,12 +171,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </Resource>
-    <EntityDeploy Include="AflyatunovGlazkiModel.edmx">
+    <EntityDeploy Include="AflyatunovGlazki.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AflyatunovGlazkiModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AflyatunovGlazki.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AflyatunovGlazkiModel.edmx.diagram">
-      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
+    <None Include="AflyatunovGlazki.edmx.diagram">
+      <DependentUpon>AflyatunovGlazki.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -181,22 +188,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AflyatunovGlazkiModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AflyatunovGlazkiModel.Context.cs</LastGenOutput>
-      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="AflyatunovGlazkiModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
-      <LastGenOutput>AflyatunovGlazkiModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="resources\Глазки-save.ico" />
     <Resource Include="resources\Глазки-save.png" />
     <Resource Include="Глазки-save.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AflyatunovGlazki.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AflyatunovGlazki.edmx</DependentUpon>
+      <LastGenOutput>AflyatunovGlazki.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AflyatunovGlazki.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AflyatunovGlazki.edmx</DependentUpon>
+      <LastGenOutput>AflyatunovGlazki.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

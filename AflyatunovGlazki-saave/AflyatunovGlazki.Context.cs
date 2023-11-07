@@ -13,10 +13,10 @@ namespace AflyatunovGlazki_saave
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AflyatunovGlazkiEntities : DbContext
+    public partial class Aflyatunov_glazkiEntities : DbContext
     {
-        public AflyatunovGlazkiEntities()
-            : base("name=AflyatunovGlazkiEntities")
+        public Aflyatunov_glazkiEntities()
+            : base("name=Aflyatunov_glazkiEntities")
         {
         }
     
