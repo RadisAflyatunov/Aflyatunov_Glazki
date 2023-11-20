@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AflyatunovGlazki_saave
@@ -23,11 +22,9 @@ namespace AflyatunovGlazki_saave
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ServicePage());
-
+            MainFrame.Navigate(new ProductPage());
             Manager.MainFrame = MainFrame;
         }
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.GoBack();

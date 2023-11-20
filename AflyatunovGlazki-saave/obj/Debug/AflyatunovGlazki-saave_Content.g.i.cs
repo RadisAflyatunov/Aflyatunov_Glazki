@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aflyatunovglazki.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aflyatunovglazki.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aflyatunovglazkimodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aflyatunovglazkimodel.tt")]
 
 
