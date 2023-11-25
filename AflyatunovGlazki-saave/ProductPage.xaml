@@ -12,12 +12,29 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Name="TBCount" FontSize="20" Height="25"></TextBlock>
+            <TextBlock Name="TBAllRecords" FontSize="20" Height="25"></TextBlock>
+            <Button Name="LeftDirButton" Content="&lt;" Width="25" FontSize="20"
+                                    Click="LeftDirButton_Click"></Button>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp" Height="35">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="25"
+                                    Click="RightDirButton_Click"></Button>
+        </StackPanel>
 
-        <WrapPanel Orientation="Horizontal">
+
+        <WrapPanel Orientation="Horizontal" Grid.RowSpan="2">
             <StackPanel Margin="20" Orientation="Horizontal">
                 <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged"
                         Width="300" FontSize="15"></TextBox>
@@ -43,6 +60,7 @@
                     <TextBlock>ОАО</TextBlock>
                     <TextBlock>ПАО</TextBlock>
                 </ComboBox>
+                
             </StackPanel>
         </WrapPanel>
 
@@ -81,10 +99,11 @@
                         <TextBlock Text="{Binding Cost, StringFormat=Скидка}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
                         <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
                         <TextBlock Text="{Binding Priority, StringFormat=Приоритет : {0}}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </Grid>
 </Page>
