@@ -34,5 +34,6 @@ namespace AflyatunovGlazki_saave
                 return AgentType.Title;
             }
         }
+
     }
 }

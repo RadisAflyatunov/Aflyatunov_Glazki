@@ -145,7 +145,7 @@ namespace AflyatunovGlazki_saave
             }
             if (ComboTypeSort.SelectedIndex == 3)
             {
-                currentAgent = currentAgent.OrderBy(p => p.Priority).ToList();             
+                currentAgent = currentAgent.OrderBy(p => p.Priority).ToList();
             }
             if (ComboTypeSort.SelectedIndex == 4)
             {
@@ -190,7 +190,7 @@ namespace AflyatunovGlazki_saave
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage(null));
         }
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -223,9 +223,19 @@ namespace AflyatunovGlazki_saave
             ChangePage(0, Convert.ToInt32(PageListBox.SelectedItem.ToString()) - 1);
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void AddBtn(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
 
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateProduct();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Agent));
         }
     }
 }
