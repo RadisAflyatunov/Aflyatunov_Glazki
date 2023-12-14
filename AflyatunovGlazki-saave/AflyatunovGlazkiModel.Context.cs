@@ -18,7 +18,7 @@ namespace AflyatunovGlazki_saave
         private static Aflyatunov_glazkiEntities _context;
         public static Aflyatunov_glazkiEntities GetContext()
         {
-            if(_context == null)
+            if (_context == null)
                 _context = new Aflyatunov_glazkiEntities();
             return _context;
         }

@@ -68,18 +68,18 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AflyatunovGlazkiModel.Context.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>AflyatunovGlazkiModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="AflyatunovGlazkiModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="AflyatunovGlazkiModel.Designer.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Agent.cs">
@@ -116,12 +116,6 @@
     <Compile Include="ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProductSale.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductType.cs">
-      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Shop.cs">
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
     </Compile>
@@ -146,6 +140,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductSale.cs">
+      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductType.cs">
+      <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -330,8 +330,8 @@
     </Content>
     <Content Include="AflyatunovGlazkiModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
       <LastGenOutput>AflyatunovGlazkiModel.cs</LastGenOutput>
+      <DependentUpon>AflyatunovGlazkiModel.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

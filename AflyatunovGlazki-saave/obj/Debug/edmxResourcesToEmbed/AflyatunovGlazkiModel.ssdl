@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище Aflyatunov_glazkiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище Anvarov_GlazkiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Agent">
     <Key>
       <PropertyRef Name="ID" />
@@ -9,7 +9,7 @@
     <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="255" />
     <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Logo" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="100" />
     <Property Name="Address" Type="nvarchar" MaxLength="300" />
     <Property Name="Priority" Type="int" Nullable="false" />
     <Property Name="DirectorName" Type="nvarchar" MaxLength="100" />
@@ -84,8 +84,8 @@
     <Property Name="ProductionPersonCount" Type="int" />
     <Property Name="ProductionWorkshopNumber" Type="int" />
     <Property Name="MinCostForAgent" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="100" />
     <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="Image" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="ProductCostHistory">
     <Key>
@@ -152,6 +152,18 @@
       </Principal>
       <Dependent Role="Agent">
         <PropertyRef Name="AgentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgentPriorityHistory_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="AgentPriorityHistory" Type="Self.AgentPriorityHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentPriorityHistory">
+        <PropertyRef Name="AgentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -251,6 +263,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductSale_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductSale">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ProductSale_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
@@ -263,7 +287,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище Aflyatunov_glazkiModelContainer">
+  <Association Name="FK_Shop_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Anvarov_GlazkiModelContainer">
     <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AgentPriorityHistory" EntityType="Self.AgentPriorityHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AgentType" EntityType="Self.AgentType" Schema="dbo" store:Type="Tables" />
@@ -281,6 +317,10 @@
     <AssociationSet Name="FK_Agent_AgentType" Association="Self.FK_Agent_AgentType">
       <End Role="AgentType" EntitySet="AgentType" />
       <End Role="Agent" EntitySet="Agent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgentPriorityHistory_Agent" Association="Self.FK_AgentPriorityHistory_Agent">
+      <End Role="Agent" EntitySet="Agent" />
+      <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
     </AssociationSet>
     <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
       <End Role="MaterialType" EntitySet="MaterialType" />
@@ -314,9 +354,17 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductMaterial" EntitySet="ProductMaterial" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+      <End Role="Agent" EntitySet="Agent" />
+      <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
     <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Agent" Association="Self.FK_Shop_Agent">
+      <End Role="Agent" EntitySet="Agent" />
+      <End Role="Shop" EntitySet="Shop" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

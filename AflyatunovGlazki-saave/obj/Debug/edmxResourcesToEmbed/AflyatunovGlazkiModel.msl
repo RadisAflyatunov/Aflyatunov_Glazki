@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище Aflyatunov_glazkiModelContainer" CdmEntityContainer="Aflyatunov_glazkiEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Anvarov_GlazkiModelContainer" CdmEntityContainer="Aflyatunov_glazkiEntities">
     <EntitySetMapping Name="Agent">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Agent">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.Agent">
         <MappingFragment StoreEntitySet="Agent">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AgentPriorityHistory">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.AgentPriorityHistory">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.AgentPriorityHistory">
         <MappingFragment StoreEntitySet="AgentPriorityHistory">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AgentID" ColumnName="AgentID" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AgentType">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.AgentType">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.AgentType">
         <MappingFragment StoreEntitySet="AgentType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -38,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Material">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Material">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.Material">
         <MappingFragment StoreEntitySet="Material">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MaterialCountHistory">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.MaterialCountHistory">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.MaterialCountHistory">
         <MappingFragment StoreEntitySet="MaterialCountHistory">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
@@ -64,7 +64,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MaterialType">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.MaterialType">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.MaterialType">
         <MappingFragment StoreEntitySet="MaterialType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -73,7 +73,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Product">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Product">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -82,13 +82,13 @@
           <ScalarProperty Name="ProductionPersonCount" ColumnName="ProductionPersonCount" />
           <ScalarProperty Name="ProductionWorkshopNumber" ColumnName="ProductionWorkshopNumber" />
           <ScalarProperty Name="MinCostForAgent" ColumnName="MinCostForAgent" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductCostHistory">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductCostHistory">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.ProductCostHistory">
         <MappingFragment StoreEntitySet="ProductCostHistory">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -98,7 +98,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductMaterial">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductMaterial">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.ProductMaterial">
         <MappingFragment StoreEntitySet="ProductMaterial">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
@@ -107,7 +107,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductSale">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductSale">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.ProductSale">
         <MappingFragment StoreEntitySet="ProductSale">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AgentID" ColumnName="AgentID" />
@@ -118,7 +118,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductType">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductType">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.ProductType">
         <MappingFragment StoreEntitySet="ProductType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -127,7 +127,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Shop">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Shop">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.Shop">
         <MappingFragment StoreEntitySet="Shop">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -137,7 +137,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Supplier">
-      <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Supplier">
+      <EntityTypeMapping TypeName="Anvarov_GlazkiModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -148,7 +148,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="MaterialSupplier" TypeName="Aflyatunov_glazkiModel.MaterialSupplier" StoreEntitySet="MaterialSupplier">
+    <AssociationSetMapping Name="MaterialSupplier" TypeName="Anvarov_GlazkiModel.MaterialSupplier" StoreEntitySet="MaterialSupplier">
       <EndProperty Name="Material">
         <ScalarProperty Name="ID" ColumnName="MaterialID" />
       </EndProperty>

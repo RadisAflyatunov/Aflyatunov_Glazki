@@ -33,16 +33,13 @@ namespace AflyatunovGlazki_saave
             {
                 check = true;
                 currentAgent = SelectedAgent;
-
+                ComboType.SelectedIndex = currentAgent.AgentTypeID - 1;
             }
 
             DataContext = currentAgent;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
 
         private void ChangePictureBtn_Click(object sender, RoutedEventArgs e)
         {
