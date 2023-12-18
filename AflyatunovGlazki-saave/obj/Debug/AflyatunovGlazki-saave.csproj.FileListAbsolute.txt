@@ -102,10 +102,10 @@ D:\3 курс\лабы Рпм\лаба 13\Aflyatunov_Glazki\AflyatunovGlazki-saa
 D:\3 курс\лабы Рпм\лаба 13\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.csproj.CopyComplete
 D:\3 курс\лабы Рпм\лаба 13\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.exe
 D:\3 курс\лабы Рпм\лаба 13\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\AflyatunovGlazki-saave.pdb
-D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\EntityFramework.dll
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\AflyatunovGlazki-saave.exe.config
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\AflyatunovGlazki-saave.exe
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\AflyatunovGlazki-saave.pdb
+D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\EntityFramework.dll
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\EntityFramework.SqlServer.dll
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\EntityFramework.xml
 D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\bin\Debug\EntityFramework.SqlServer.xml
