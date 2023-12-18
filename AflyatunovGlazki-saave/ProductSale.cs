@@ -20,6 +20,31 @@ namespace AflyatunovGlazki_saave
         public System.DateTime SaleDate { get; set; }
         public int ProductCount { get; set; }
     
+        public virtual Agent Agent { get; set; }
         public virtual Product Product { get; set; }
+
+        public string Title
+        {
+            get
+            {
+                return Product.Title;
+            }
+        }
+
+        public string Date
+        {
+            get
+            {
+                return SaleDate.ToShortDateString();
+            }
+        }
+
+        public string AgentTitle
+        {
+            get
+            {
+                return Agent.Title;
+            }
+        }
     }
 }

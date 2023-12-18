@@ -67,6 +67,9 @@
     <Compile Include="AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddSalesPage.xaml.cs">
+      <DependentUpon>AddSalesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AflyatunovGlazkiModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,6 +107,9 @@
     <Compile Include="MaterialType.cs">
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PriorityEditWindow.xaml.cs">
+      <DependentUpon>PriorityEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
     <Compile Include="ProductSale.cs">
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSalesPage.xaml.cs">
+      <DependentUpon>ProductSalesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProductType.cs">
       <DependentUpon>AflyatunovGlazkiModel.tt</DependentUpon>
@@ -136,11 +145,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="AddSalesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PriorityEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductSalesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

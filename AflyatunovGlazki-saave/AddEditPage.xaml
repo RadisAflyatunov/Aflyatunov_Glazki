@@ -83,6 +83,7 @@
     <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
         <Button Content="Сохранить" Name="SaveBtn" Click="SaveBtn_Click" Margin="5"></Button>
         <Button Content="Удалить" Name="DeleteBtn" Click="DeleteBtn_Click" Margin="5" Opacity="{Binding ID}"></Button>
-    </StackPanel>
+            <Button Content="Продажи" Name="SaleBtn" Click="SaleBtn_Click" Margin="5"></Button>
+        </StackPanel>
     </Grid>
 </Page>

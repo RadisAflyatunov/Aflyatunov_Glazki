@@ -140,5 +140,10 @@ namespace AflyatunovGlazki_saave
                 }
             }
         }
+
+        private void SaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new ProductSalesPage(currentAgent));
+        }
     }
 }

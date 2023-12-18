@@ -18,5 +18,7 @@ namespace AflyatunovGlazki_saave
         public int AgentID { get; set; }
         public System.DateTime ChangeDate { get; set; }
         public int PriorityValue { get; set; }
+    
+        public virtual Agent Agent { get; set; }
     }
 }

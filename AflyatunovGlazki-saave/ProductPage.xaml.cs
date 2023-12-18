@@ -29,8 +29,7 @@ namespace AflyatunovGlazki_saave
         public ProductPage()
         {
             InitializeComponent();
-
-            var currentAgents = Aflyatunov_glazkiEntities.GetContext().Agent.ToList();
+            List<Agent> currentAgents = Aflyatunov_glazkiEntities.GetContext().Agent.ToList();
 
             ServiceListView.ItemsSource = currentAgents;
 
@@ -236,6 +235,50 @@ namespace AflyatunovGlazki_saave
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Agent));
+        }
+
+        private void PriorityEdit_Click(object sender, RoutedEventArgs e)
+        {
+            int max = 0;
+            foreach (Agent agent in ServiceListView.SelectedItems)
+            {
+                if (agent.Priority >= max)
+                {
+                    max = agent.Priority;
+                }
+            }
+            PriorityEditWindow window = new PriorityEditWindow(max);
+            window.ShowDialog();
+            if (string.IsNullOrEmpty(window.PriorityText.Text)) return;
+            MessageBox.Show(window.PriorityText.Text);
+
+            foreach (Agent agent in ServiceListView.SelectedItems)
+            {
+
+                agent.Priority = Convert.ToInt32(window.PriorityText.Text);
+            }
+            try
+            {
+                Aflyatunov_glazkiEntities.GetContext().SaveChanges();
+                MessageBox.Show("информация сохранена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            UpdateProduct();
+        }
+
+        private void AgentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ServiceListView.SelectedItems.Count > 1)
+            {
+                PriorityEdit.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PriorityEdit.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

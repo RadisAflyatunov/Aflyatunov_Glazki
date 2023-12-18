@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Aflyatunov_glazkiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Aflyatunov_GlazkiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,7 +14,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Logo" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="100" />
           <Property Name="Address" Type="nvarchar" MaxLength="300" />
           <Property Name="Priority" Type="int" Nullable="false" />
           <Property Name="DirectorName" Type="nvarchar" MaxLength="100" />
@@ -89,8 +89,8 @@
           <Property Name="ProductionPersonCount" Type="int" />
           <Property Name="ProductionWorkshopNumber" Type="int" />
           <Property Name="MinCostForAgent" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Image" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="ProductCostHistory">
           <Key>
@@ -157,6 +157,18 @@
             </Principal>
             <Dependent Role="Agent">
               <PropertyRef Name="AgentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AgentPriorityHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="AgentPriorityHistory" Type="Self.AgentPriorityHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AgentPriorityHistory">
+              <PropertyRef Name="AgentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -256,6 +268,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductSale_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProductSale_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
@@ -268,7 +292,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище Aflyatunov_glazkiModelContainer">
+        <Association Name="FK_Shop_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Aflyatunov_GlazkiModelContainer">
           <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AgentPriorityHistory" EntityType="Self.AgentPriorityHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AgentType" EntityType="Self.AgentType" Schema="dbo" store:Type="Tables" />
@@ -286,6 +322,10 @@
           <AssociationSet Name="FK_Agent_AgentType" Association="Self.FK_Agent_AgentType">
             <End Role="AgentType" EntitySet="AgentType" />
             <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AgentPriorityHistory_Agent" Association="Self.FK_AgentPriorityHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
           </AssociationSet>
           <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
             <End Role="MaterialType" EntitySet="MaterialType" />
@@ -319,16 +359,24 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductMaterial" EntitySet="ProductMaterial" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Agent" Association="Self.FK_Shop_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Shop" EntitySet="Shop" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Aflyatunov_glazkiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Aflyatunov_GlazkiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="ID" />
@@ -338,13 +386,16 @@
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Logo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
           <Property Name="DirectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KPP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AgentType" Relationship="Self.FK_Agent_AgentType" FromRole="Agent" ToRole="AgentType" />
+          <NavigationProperty Name="AgentPriorityHistory" Relationship="Self.FK_AgentPriorityHistory_Agent" FromRole="Agent" ToRole="AgentPriorityHistory" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Agent" FromRole="Agent" ToRole="ProductSale" />
+          <NavigationProperty Name="Shop" Relationship="Self.FK_Shop_Agent" FromRole="Agent" ToRole="Shop" />
         </EntityType>
         <EntityType Name="AgentPriorityHistory">
           <Key>
@@ -354,6 +405,7 @@
           <Property Name="AgentID" Type="Int32" Nullable="false" />
           <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="PriorityValue" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_AgentPriorityHistory_Agent" FromRole="AgentPriorityHistory" ToRole="Agent" />
         </EntityType>
         <EntityType Name="AgentType">
           <Key>
@@ -413,8 +465,8 @@
           <Property Name="ProductionPersonCount" Type="Int32" />
           <Property Name="ProductionWorkshopNumber" Type="Int32" />
           <Property Name="MinCostForAgent" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
           <NavigationProperty Name="ProductCostHistory" Relationship="Self.FK_ProductCostHistory_Product" FromRole="Product" ToRole="ProductCostHistory" />
           <NavigationProperty Name="ProductMaterial" Relationship="Self.FK_ProductMaterial_Product" FromRole="Product" ToRole="ProductMaterial" />
@@ -450,6 +502,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ProductCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_ProductSale_Agent" FromRole="ProductSale" ToRole="Agent" />
           <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
         <EntityType Name="ProductType">
@@ -469,6 +522,7 @@
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="AgentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Shop_Agent" FromRole="Shop" ToRole="Agent" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -491,6 +545,42 @@
             </Principal>
             <Dependent Role="Agent">
               <PropertyRef Name="AgentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AgentPriorityHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="AgentPriorityHistory" Type="Self.AgentPriorityHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AgentPriorityHistory">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="AgentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -600,6 +690,18 @@
             <End Role="AgentType" EntitySet="AgentType" />
             <End Role="Agent" EntitySet="Agent" />
           </AssociationSet>
+          <AssociationSet Name="FK_AgentPriorityHistory_Agent" Association="Self.FK_AgentPriorityHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Agent" Association="Self.FK_Shop_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
           <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
             <End Role="MaterialType" EntitySet="MaterialType" />
             <End Role="Material" EntitySet="Material" />
@@ -638,9 +740,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Aflyatunov_glazkiModelContainer" CdmEntityContainer="Aflyatunov_glazkiEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Aflyatunov_GlazkiModelContainer" CdmEntityContainer="Aflyatunov_glazkiEntities">
           <EntitySetMapping Name="Agent">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Agent">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
@@ -657,7 +759,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AgentPriorityHistory">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.AgentPriorityHistory">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.AgentPriorityHistory">
               <MappingFragment StoreEntitySet="AgentPriorityHistory">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AgentID" ColumnName="AgentID" />
@@ -667,7 +769,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AgentType">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.AgentType">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.AgentType">
               <MappingFragment StoreEntitySet="AgentType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -676,7 +778,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Material">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Material">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.Material">
               <MappingFragment StoreEntitySet="Material">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -692,7 +794,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MaterialCountHistory">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.MaterialCountHistory">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.MaterialCountHistory">
               <MappingFragment StoreEntitySet="MaterialCountHistory">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
@@ -702,7 +804,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MaterialType">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.MaterialType">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.MaterialType">
               <MappingFragment StoreEntitySet="MaterialType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -711,7 +813,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Product">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -720,13 +822,13 @@
                 <ScalarProperty Name="ProductionPersonCount" ColumnName="ProductionPersonCount" />
                 <ScalarProperty Name="ProductionWorkshopNumber" ColumnName="ProductionWorkshopNumber" />
                 <ScalarProperty Name="MinCostForAgent" ColumnName="MinCostForAgent" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCostHistory">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductCostHistory">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.ProductCostHistory">
               <MappingFragment StoreEntitySet="ProductCostHistory">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -736,7 +838,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductMaterial">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductMaterial">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.ProductMaterial">
               <MappingFragment StoreEntitySet="ProductMaterial">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
@@ -745,7 +847,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductSale">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductSale">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.ProductSale">
               <MappingFragment StoreEntitySet="ProductSale">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AgentID" ColumnName="AgentID" />
@@ -756,7 +858,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductType">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.ProductType">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.ProductType">
               <MappingFragment StoreEntitySet="ProductType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -765,7 +867,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shop">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Shop">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.Shop">
               <MappingFragment StoreEntitySet="Shop">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -775,7 +877,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supplier">
-            <EntityTypeMapping TypeName="Aflyatunov_glazkiModel.Supplier">
+            <EntityTypeMapping TypeName="Aflyatunov_GlazkiModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -786,7 +888,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="MaterialSupplier" TypeName="Aflyatunov_glazkiModel.MaterialSupplier" StoreEntitySet="MaterialSupplier">
+          <AssociationSetMapping Name="MaterialSupplier" TypeName="Aflyatunov_GlazkiModel.MaterialSupplier" StoreEntitySet="MaterialSupplier">
             <EndProperty Name="Material">
               <ScalarProperty Name="ID" ColumnName="MaterialID" />
             </EndProperty>

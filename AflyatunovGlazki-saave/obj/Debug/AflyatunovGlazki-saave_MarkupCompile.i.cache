@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\
+D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\obj\Debug\
 AflyatunovGlazki_saave
 none
 false
 DEBUG;TRACE
-D:\3 курс\лабы Рпм\лаба 11\Aflyatunov_Glazki\AflyatunovGlazki-saave\App.xaml
-31052786089
+D:\3 курс\лабы Рпм\лаба 14\Aflyatunov_Glazki\AflyatunovGlazki-saave\App.xaml
+6-2032641945
 2-1723972349
-25-1082448745
-18-1754037225
-AddEditPage.xaml;MainWindow.xaml;ProductPage.xaml;
+281389793689
+18322749633
+AddEditPage.xaml;AddSalesPage.xaml;MainWindow.xaml;PriorityEditWindow.xaml;ProductPage.xaml;ProductSalesPage.xaml;
 
-False
+True
 
